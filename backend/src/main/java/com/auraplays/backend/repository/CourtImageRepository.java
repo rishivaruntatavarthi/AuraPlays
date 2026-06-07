@@ -1,0 +1,13 @@
+package com.auraplays.backend.repository;
+
+import com.auraplays.backend.entity.Court;
+import com.auraplays.backend.entity.CourtImage;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface CourtImageRepository extends JpaRepository<CourtImage, Long> {
+    List<CourtImage> findByCourt(Court court);
+}
