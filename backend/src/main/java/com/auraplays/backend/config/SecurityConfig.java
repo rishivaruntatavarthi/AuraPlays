@@ -80,12 +80,8 @@ public class SecurityConfig {
 
         CorsConfiguration configuration = new CorsConfiguration();
 
-        configuration.setAllowedOriginPatterns(List.of(
-                "http://localhost:3000",
-                "http://localhost:5173",
-                "http://127.0.0.1:5173",
-                "https://aura-plays-m4bt.vercel.app",
-                "https://*.vercel.app"));
+        // TEMPORARY DEBUGGING - Allow all origins
+        configuration.addAllowedOriginPattern("*");
 
         configuration.setAllowedMethods(List.of(
                 "GET",
@@ -101,7 +97,10 @@ public class SecurityConfig {
                 "Authorization",
                 "Content-Type"));
 
-        configuration.setAllowCredentials(true);
+        // Must be false when using *
+        configuration.setAllowCredentials(false);
+
+        configuration.setMaxAge(3600L);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 
