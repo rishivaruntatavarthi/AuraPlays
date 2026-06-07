@@ -80,7 +80,6 @@ public class SecurityConfig {
 
         CorsConfiguration configuration = new CorsConfiguration();
 
-        // TEMPORARY DEBUGGING - Allow all origins
         configuration.addAllowedOriginPattern("*");
 
         configuration.setAllowedMethods(List.of(
@@ -97,10 +96,7 @@ public class SecurityConfig {
                 "Authorization",
                 "Content-Type"));
 
-        // Must be false when using *
         configuration.setAllowCredentials(false);
-
-        configuration.setMaxAge(3600L);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 
