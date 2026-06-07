@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:8098/api',
+  baseURL: 'https://auraplays-production.up.railway.app/api',
 });
 
 // Request interceptor to add JWT token
